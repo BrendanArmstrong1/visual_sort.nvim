@@ -37,8 +37,9 @@ end
 
 M.sort_visual_selection = function(visual_selection, descending)
   table.sort(visual_selection, function(a, b)
-    if a[2] == "" then
-      return false
+    if b[2] == "" then
+      print(vim.inspect(a), vim.inspect(b))
+      return a[1] < b[1]
     end
     if descending == "rev" then
       return a[2] > b[2]

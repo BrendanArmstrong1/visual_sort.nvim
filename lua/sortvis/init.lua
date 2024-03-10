@@ -5,29 +5,6 @@ M = {}
 
 M.setup = config.setup
 
--- 3
--- 1
--- 2
--- 0
-
--- 4
--- 5
--- 6
-
--- 1
--- 2
--- 3
-
--- FA722406011121
--- FA722406011121
--- FA722406011134
--- FA722406011156
--- FA722406023452
--- FA722406035248
--- FA722406036545
--- FA722406036947
--- FA722408011139
-
 M.sort_visual_block = function(descending)
   local mode = vim.fn.visualmode()
   if mode == "" then
