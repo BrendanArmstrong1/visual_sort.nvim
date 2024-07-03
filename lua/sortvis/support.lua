@@ -29,6 +29,7 @@ M.build_visual_selection = function(y1, y2, x1, x2)
     visual_selection[index] = {
       index + y1 - 1,
       vim.api.nvim_buf_get_text(0, i, x1, i, x2 + 1, {})[1],
+      vim.api.nvim_buf_get_lines(0, y1 + index - 2, y1 + index - 1, false),
     }
     index = index + 1
   end
@@ -37,10 +38,10 @@ end
 
 M.sort_visual_selection = function(visual_selection, descending)
   table.sort(visual_selection, function(a, b)
-    if b[2] == "" then
-      print(vim.inspect(a), vim.inspect(b))
+    if b[2] == "" or a[2] == "" then
       return a[1] < b[1]
     end
+
     if descending == "rev" then
       return a[2] > b[2]
     else
@@ -48,15 +49,5 @@ M.sort_visual_selection = function(visual_selection, descending)
     end
   end)
 end
-
-M.get_lines = function(y1)
-  local function wrapper(k, item)
-    local original_line = vim.api.nvim_buf_get_lines(0, y1 - 2 + k, y1 - 1 + k, false)
-    local target_line = vim.api.nvim_buf_get_lines(0, item[1] - 1, item[1], false)
-    return original_line, target_line
-  end
-  return wrapper
-end
-
 
 return M
