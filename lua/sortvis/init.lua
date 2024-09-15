@@ -1,5 +1,5 @@
-local config = require("sortvis.config")
-local support = require("sortvis.support")
+local config = require("visual_sort.config")
+local support = require("visual_sort.support")
 
 M = {}
 
