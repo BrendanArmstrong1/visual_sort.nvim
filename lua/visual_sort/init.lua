@@ -1,6 +1,15 @@
 local config = require("visual_sort.config")
 local support = require("visual_sort.support")
 
+-- 5
+-- 4
+-- 6
+-- 7
+-- 1
+-- 2
+-- 9
+-- 3
+
 M = {}
 
 M.setup = config.setup
